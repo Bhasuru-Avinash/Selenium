@@ -1,0 +1,39 @@
+package Day1;
+
+
+    import org.openqa.selenium.chrome.ChromeDriver;
+    import org.openqa.selenium.edge.EdgeDriver;
+     import org.openqa.selenium.WebDriver;
+/*
+ * test case
+ * 1) launch chrome browser
+ * 2) open url https://demo.opencart.com/
+ * 3) validate title should be "your store
+ * 4) close browser
+ */
+
+public class FirstTestCase {
+
+	public static void main(String[] args) {
+		//1) launch chrome browser
+		WebDriver driver = new EdgeDriver();
+		//WebDriver driver =new EdgeDriver();
+//2) open url htts://demo.opencart.com/
+		driver.get("https://demo.nopcommerce.com/");
+		//) validate title should be "your store
+		String act_title=driver.getTitle();
+		if(act_title.equals("nopCommerce demo store"))
+		{
+			System.out.println("test is passed");
+		}
+		else
+		{
+			System.out.println("test is failed");
+		}
+	//4) close browser
+driver.quit();
+			
+
+	}
+
+}
