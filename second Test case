@@ -1,0 +1,33 @@
+package day2;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Day2 {
+
+	public static void main(String[] args) {
+		ChromeDriver driver=new ChromeDriver();
+		driver.get("https://www.amazon.in/");
+		driver.manage().window().maximize();
+		//name
+		//driver.findElement(By.name("search")).sendKeys("Samsung");
+	//id
+	boolean logoDisplaystatus =	driver.findElement(By.id("logo")).isDisplayed();
+	 System.out.print(logoDisplaystatus);
+	 linktext & partiallink text
+	  driver.findElement(By.linkText("Electronics")).click();
+		//classname
+;	 List<WebElement> headerLinks=driver.findElements(By.className("list-inline-item"));
+     System.out.println("total number of header links :"+headerLinks.size());
+	
+	//tagname
+	 List<WebElement> links = driver.findElements(By.tagName("a"));
+	 System.out.println("total number of links :"+links.size());
+   List<WebElement> images = driver.findElements(By.tagName("img"));
+   System.out.println("total number of images : "+images.size());
+
+}
+}
