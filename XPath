@@ -1,0 +1,37 @@
+package Day4;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class XpathDemo {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.amazon.in/");
+		driver.manage().window().maximize();
+	// xpath with single attribute
+		 driver.findElement(By.xpath("//input[@placeholder='Search store']")).sendKeys("TShirts");
+	// xpath with multiple attributes
+		 driver.findElement(By.xpath("//input[@name='Search'][@placeholder='Search store'])")).sendKeys("TShirts");
+	// xpath with AND operator
+		 driver.findElement(By.xpath("//input[@name='q' and @placeholder='Search store']")).sendKeys("Mobiles");
+	// xpath with OR operator
+		driver.findElement(By.xpath("//input[@name='q' or @placeholder='Search store']")).sendKeys("Mobiles");
+	//xpath with text
+		driver.findElement(By.xpath("//*[text()='Mobiles']")).click();
+		//xpath with text() - inner text
+		boolean displaystatus=driver.findElement(By.xpath("//*[text()='Sell']")).isDisplayed();
+		System.out.println(displaystatus);
+		String value=driver.findElement(By.xpath("//*[text()='Sell']")).getText();
+		System.out.println(value);
+		//xpath with contains method
+		driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).sendKeys("Mobiles");
+		//xpath startwith
+		driver.findElement(By.xpath("//input[starts-with(@placeholder,'Sea')]")).sendKeys("Mobiles");
+		//chained xpath
+		boolean imagestatus = driver.findElement(By.xpath("//a[@id='nav-logo-sprites']")).isDisplayed();
+		System.out.println(imagestatus);
+	}
+
+}
